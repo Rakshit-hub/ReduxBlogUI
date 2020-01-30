@@ -1,12 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import React from 'react' 
+import App from './app'
+import ReactDOM from 'react-dom'
+import {Provider} from 'react-redux'
+import configureStore from './store/configureStore'
+import { startSetUser, startSetPost } from './action/users'
+import { startSetComments } from './action/comments'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const store=configureStore()
+//store.dispatch(startSetUser())
+store.dispatch(startSetPost())
+store.dispatch(startSetComments())
+
+const jsx=(
+    <Provider store={store}>
+        <App/>
+    </Provider>
+)
+ReactDOM.render(jsx,document.getElementById('root'))
