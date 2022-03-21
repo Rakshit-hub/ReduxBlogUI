@@ -14,3 +14,12 @@ export const startSetComments=(n)=>{
         })
     }
 }
+
+// export const set1Comments=()=>{
+//     return(dispatch)=>{
+//         axios.get('https://jsonplaceholder.typicode.com/comments')
+//         .then((res)=>{
+//             dispatch(setComments(res.data))
+//         })
+//     }
+// }
